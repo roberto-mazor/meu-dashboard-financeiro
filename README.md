@@ -95,47 +95,7 @@ Este projeto utiliza um modelo relacional simples e coeso, focado em garantir a 
 
 O diagrama abaixo ilustra as quatro entidades principais e suas relações no banco de dados, utilizando a sintaxe Mermaid para ER Diagram:
 
-```mermaid
-erDiagram
-    USERS ||--o{ ACCOUNTS : possui
-    USERS ||--o{ CATEGORIES : possui
-    ACCOUNTS ||--o{ TRANSACTIONS : tem
-    CATEGORIES ||--o{ TRANSACTIONS : classifica
-
-    USERS {
-        int id PK
-        string email UK "Chave Única"
-        string password_hash
-        string nome
-        datetime created_at
-    }
-
-    ACCOUNTS {
-        int id PK
-        int user_id FK
-        string nome "Ex: Conta Corrente, Poupança"
-        decimal saldo_inicial
-    }
-
-    CATEGORIES {
-        int id PK
-        int user_id FK
-        string nome "Ex: Salário, Aluguel, Alimentação"
-        string tipo ENUM "INCOME, EXPENSE"
-    }
-
-    TRANSACTIONS {
-        int id PK
-        int user_id FK
-        int account_id FK
-        int category_id FK
-        string type ENUM "INCOME, EXPENSE"
-        decimal valor
-        string descricao
-        date data
-        datetime created_at
-    }
-```
+![DER Diagrama](public/der.svg)
 
 ### 3.2. Descrição das Entidades
 
